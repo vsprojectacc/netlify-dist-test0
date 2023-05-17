@@ -13,10 +13,10 @@ app.use(express.static(path.join('./src/public')))
 app.use(express.urlencoded({extended:true}))
 
 const SHEET_ID = process.env.SHEET_ID;
-/*
+
 const keysEnvVar = process.env['SECRETKEY'];
 const keys = JSON.parse(keysEnvVar);
-console.log(keys)*/
+console.log(keys)
 
 router.get('/', async(req, res) => {
     try{
@@ -60,7 +60,7 @@ router.post('/',async(req,res)=>{
 
         console.log([msg_name,msg_content])
 
-        const client = new google.auth.JWT.fromJSON(keys);
+        const client = auth.JWT.fromJSON(keys);
         client.scopes=['https://www.googleapis.com/auth/spreadsheets'];
 
         const googleSheets = google.sheets({
