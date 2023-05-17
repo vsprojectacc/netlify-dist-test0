@@ -60,7 +60,7 @@ router.post('/',async(req,res)=>{
 
         console.log([msg_name,msg_content])
 
-        const client = auth.JWT.fromJSON(keys);
+        const client = auth.fromJSON(keys);
         client.scopes=['https://www.googleapis.com/auth/spreadsheets'];
 
         const googleSheets = google.sheets({
