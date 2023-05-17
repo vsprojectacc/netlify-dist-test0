@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/public/img/amicitia PFP.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>AMICITIA OF 23</title>
+    <link rel="stylesheet" href="/src/public/css/style.css" type="text/css">
+    <script defer src="/src/public/script/main.js"></script>
+  </head>
+  <body>
+  
+    <header class="primary-header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="main-logo">
+            <img src="/src/public/img/amicitia PFP.png" alt="AMICITIA LOGO" class="main-logo">
+          </div>
+          <nav class="primary-navigation" role="list">
+            <ul class="nav-list">
+              <li><a href="#top">Top</a></li>
+              <li><a href="#info">Info</a></li>
+              <!--<li><a href="#">Where</a></li>-->
+              <li><a href="#messagessection">Message</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          <form action="http://bit.ly/AMICITIATICKETS" method="get" target="_blank">
+            <button class="button" type="submit">Register</button>
+         </form>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro" id="top"><a class="anchor" name="top"></a>
+        <div class="container">
+          <h1 class="fs-main-heading text-primary-300 fw-bold hidden">AMICITIA OF 23</h1>
+          <p class="fs-secondary-heading text-primary-300 hidden">a night to remember</p>
+        </div>
+      </section>
+
+      <section class="info" id="info">
+        <div class="container">
+          <div class="even-columns"><a class="anchor" name="info"></a>
+            <div class="countdown subsection hidden"><a class="anchor" name="when"></a>
+              <h1 class="fs-primary-heading text-primary-300 fw-bold">WHEN?</h1>
+              <div class="date-container">
+                <p class="fs-secondary-heading text-primary-300 fw-bold">June 12th</p>
+                <div class="countdown countdown-wrapper">
+                <h3 id="demo" class=" fs-body text-neutral-400 fw-semibold"></h3>
+                </div>
+                  <script defer>
+              // Set the date we're counting down to
+                  var countDownDate = new Date(1686502800000).getTime();
+      
+                  // Update the count down every 1 second
+                      var x = setInterval(function() {
+      
+                      // Get today's date and time
+                      var now = new Date().getTime();
+                          
+                      // Find the distance between now and the count down date
+                      var distance = countDownDate - now;
+                          
+                      // Time calculations for days, hours, minutes and seconds
+                      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                          
+                      var output = days + " Days <br>"  + hours + " Hours <br>";
+      
+                      if(days<=100){
+                        output+=minutes +" Minutes <br>" + seconds + " Seconds <br>";
+                      }
+      
+                      if (distance < 0) {
+                          clearInterval(x);
+                          output = "no time";
+                      }
+      
+                      output += "away";
+                      // Output the result in an element with id="demo"
+                      document.getElementById("demo").innerHTML = output;
+                          
+                      // If the count down is over, write some text 
+                      
+                  }, 1000);
+                  </script>
+              </div>
+              <div class="calender-button">
+              <a class="button" target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MWwyNjhtYnYxZmExbWRpbmY3bjlrMWc1cDggZmFyYmx1ZTkwQG0&amp;tmsrc=farblue90%40gmail.com">
+                Remind Me
+              </a></div>
+            </div>
+              
+            <div class="mapcontain subsection hidden"><a class="anchor" name="where"></a>
+                <h1 class="fs-primary-heading text-primary-300 fw-bold">WHERE?</h1>
+                <div class="map-desc-container">
+                  <h2 class="fs-secondary-heading text-primary-300 fw-bold">Mercure Bandung City Centre</h2>
+                  <div class="map-detail-container">
+                    <p class="fs-body text-neutral-400">Jl. Lengkong Besar No.8, Cikawao, Kec. Lengkong, Kota Bandung, Jawa Barat 40261, Indonesia</p>
+                  </div>
+                </div>
+                <div class="mapouter">
+                  <div class="gmap_canvas">
+                    <iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=mercure bandung city centre&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <a href="https://2yu.co">2yu</a>
+                    <br>
+                    <!--<style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}</style>-->
+                    <a href="https://embedgooglemap.2yu.co/">html embed google map</a>
+                    <!--<style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style>-->
+                  </div>
+                </div>
+                <form action="https://goo.gl/maps/RbQKttuutkZegS686?coh=178571&entry=tt" method="get" target="_blank">
+                  <button class="button" type="submit">Directions</button>
+               </form>
+            </div>
+    
+            <div class="clothing subsection hidden"><a class="anchor" name="wear"></a>
+              <h1 class="fs-primary-heading text-primary-300 fw-bold">WEAR?</h1>
+              <div class="clothing-description">
+                <p class="fs-body text-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-carousel" id="gallery"><a class="anchor" name="gallery"></a>
+        <div class="container">
+          <h1 class="fs-primary-heading text-primary-300 fw-bold hidden">GALLERY</h1>
+          <p class="fs-600 text-neutral-400 fw-semibold hidden">TBA...</p>
+        </div>  
+      </section>
+
+      <section class="message-collection" id="messagessection"><a class="anchor" name="messagessection"></a>
+        <div class="container" id="msg">
+        <h1 class="fs-primary-heading text-primary-300 fw-bold hidden">MESSAGES</h1>
+        <div class="message-mess hidden"></div>
+          <form action="" class="form hidden" method="POST" id="message-form">
+            <div class="form-field">
+              <label for="msg-name" class="text-neutral-400 fw-semibold fs-600">Name</label>
+              <input class="msg-name-field" type="text" name="msg_name" id="msg_sender" maxlength="50">
+            </div>
+            <div class="form-field">
+              <label for="msg-content" class="text-neutral-400 fw-semibold fs-600">Message</label>
+              <textarea class="msg-content-field" type="text" name="msg_content" id="msg_msg" cols="3" maxlength="240"></textarea>
+            </div>
+            <button class="button" type="submit">Send message</button>
+          </form>
+          <div id="msg-collector" class="msg-collector hidden">
+          </div>
+        </div>
+        <p id="content" style="visibility:visible ;opacity:0%; size: 0px; position:absolute" class="text-neutral-400 fs-500">
+          <%= content %>
+        </p>
+        <script>
+          document.getElementById("message-form").reset();
+        </script>
+        <script>
+          const contentEl= document.getElementById("content").innerHTML;
+          var arrary = JSON.parse(contentEl)
+          arrary.forEach(element => {
+            //Create Wrapper For each comment
+            const entryWrapper = document.createElement("div");
+            const entryClass = document.createAttribute("class");
+            entryClass.value = "comment-entry-wrap bg-neutral-400"
+            
+
+            //Creates Name Format
+            const commentSender = document.createElement("p");
+            const senderClass = document.createAttribute("class");
+            senderClass.value = "comment-sender fw-bold";
+            commentSender.innerText = element[0];
+
+            //Creates Message Format
+            const commentContent = document.createElement("p");
+            const commentClass = document.createAttribute("class");
+            commentClass.value = "comment-content fw-regular";
+            commentContent.innerText = element[1];
+
+            entryWrapper.setAttributeNode(entryClass);
+            commentSender.setAttributeNode(senderClass);
+            commentContent.setAttributeNode(commentClass);
+
+            entryWrapper.appendChild(commentSender);
+            entryWrapper.appendChild(commentContent);
+
+            const currentDiv=document.getElementById("content");
+            const parentDiv=document.getElementById("msg-collector");
+
+            parentDiv.appendChild(entryWrapper);
+          });
+          document.getElementById("content").style.visibility = "hidden"
+          //console.log(arrary,arrary.length)
+          //var arrary2 = JSON.parse("["+arrary[0]+"]")
+          //document.getElementById("processed-content").innerHTML= arrary.length;
+        </script>
+      </div>
+      </section>
+
+    </main>
+
+    <footer class="footer"><a name="contact"></a>
+      <cite >
+        <a style="text-decoration: underline;font-style: italic;" class="text-neutral-400 fs-body" href="https://www.instagram.com/amicitiaof23/" target="_blank">contact us</a>
+      </cite>
+    </footer>
+  </body>
+
+</html>
