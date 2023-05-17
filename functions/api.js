@@ -16,20 +16,20 @@ const SHEET_ID = process.env.SHEET_ID;
 
 const keysEnvVar = process.env['SECRETKEY'];
 const keys = JSON.parse(keysEnvVar);
-console.log(keys)
+
 
 router.get('/', async(req, res) => {
     try{
-        const auth_new = new google.auth.GoogleAuth({
-            keyFile: "./secretcred.json",
-            scopes: 'https://www.googleapis.com/auth/spreadsheets'
-        });
+        const auth_new = google.auth.fromJSON(keys);
+        auth_new.scopes= ['https://www.googleapis.com/auth/spreadsheets'];
 
-        const client = await auth_new.getClient()
+        //const client = await auth_new.getClient()
+
+        //console.log(auth_new)
 
         const googleSheets = google.sheets({
             version:"v4",
-            auth:client,
+            auth:auth_new,
         });
 
         const metaData = await googleSheets.spreadsheets.get({
@@ -58,21 +58,23 @@ router.post('/',async(req,res)=>{
     try{
         var { msg_name, msg_content } = req.body;
 
-        console.log([msg_name,msg_content])
+        const authClient = google.auth.fromJSON(keys);
+        authClient.scopes = ['https://www.googleapis.com/auth/spreadsheets'];
 
-        const client = auth.fromJSON(keys);
-        client.scopes=['https://www.googleapis.com/auth/spreadsheets'];
+        //console.log(client)
+
+       // const authClient = await client.getClient();
 
         const googleSheets = google.sheets({
             version:"v4",
-            auth:client,
+            auth:authClient,
         });
 
         if(msg_name!=""){
 
         
         const sendData = await googleSheets.spreadsheets.values.append({
-            auth,
+            auth:authClient,
             spreadsheetId: SHEET_ID,
             range:"Sheet1!A2:B",
             valueInputOption:'USER_ENTERED',
