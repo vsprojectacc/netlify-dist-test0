@@ -5,3 +5,5 @@
 node_modules
 
 secretcred.json
+
+.env

@@ -1,6 +1,7 @@
 const express = require('express');
 const {google} = require('googleapis');
 const serverless = require('serverless-http');
+const {auth} = require('google-auth-library');
 const path = require('path');
 
 const app = express();
@@ -12,15 +13,19 @@ app.use(express.static(path.join('./src/public')))
 app.use(express.urlencoded({extended:true}))
 
 const SHEET_ID = process.env.SHEET_ID;
+/*
+const keysEnvVar = process.env['SECRETKEY'];
+const keys = JSON.parse(keysEnvVar);
+console.log(keys)*/
 
-const loadpage = router.get('/', async(req, res) => {
+router.get('/', async(req, res) => {
     try{
-        const auth = new google.auth.GoogleAuth({
-            keyFile:process.env.SECRETKEY,
-            scopes:"https://www.googleapis.com/auth/spreadsheets",
+        const auth_new = new google.auth.GoogleAuth({
+            keyFile: "./secretcred.json",
+            scopes: 'https://www.googleapis.com/auth/spreadsheets'
         });
 
-        const client = await auth.getClient();
+        const client = await auth_new.getClient()
 
         const googleSheets = google.sheets({
             version:"v4",
@@ -28,27 +33,15 @@ const loadpage = router.get('/', async(req, res) => {
         });
 
         const metaData = await googleSheets.spreadsheets.get({
-            auth,
+            auth:auth_new,
             spreadsheetId: SHEET_ID,
         });
 
         const getRows = await googleSheets.spreadsheets.values.get({
-            auth, 
+            auth:auth_new, 
             spreadsheetId: SHEET_ID,
             range:"Sheet1!A2:B",
         });
-
-        /*** 
-        await googleSheets.spreadsheets.values.append({
-            auth,
-            spreadsheetId: SHEET_ID,
-            range:"Sheet1!A2:B",
-            valueInputOption:'USER_ENTERED',
-            resource:{values:[
-                ["Value1","Value2"],
-            ],},   
-        });
-        */
 
         const outputJSON = JSON.stringify(getRows.data.values);
 
@@ -61,18 +54,14 @@ const loadpage = router.get('/', async(req, res) => {
     }
 });
 
-const sendpost = router.post('/',async(req,res)=>{
+router.post('/',async(req,res)=>{
     try{
         var { msg_name, msg_content } = req.body;
 
         console.log([msg_name,msg_content])
 
-        const auth = new google.auth.GoogleAuth({
-            keyFile:"./secretcred.json",
-            scopes:"https://www.googleapis.com/auth/spreadsheets",
-        });
-
-        const client = await auth.getClient();
+        const client = new google.auth.JWT.fromJSON(keys);
+        client.scopes=['https://www.googleapis.com/auth/spreadsheets'];
 
         const googleSheets = google.sheets({
             version:"v4",
