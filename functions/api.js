@@ -89,5 +89,5 @@ router.post('/',async(req,res)=>{
     }
 });
 
-app.use('/',router);
+app.use('/.netlify/functions',router);
 module.exports.handler = serverless(app);
