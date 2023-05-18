@@ -32,6 +32,7 @@
           <form action="http://bit.ly/AMICITIATICKETS" method="get" target="_blank">
             <button class="button" type="submit">Register</button>
          </form>
+         
         </div>
       </div>
     </header>
@@ -125,8 +126,10 @@
             <div class="clothing subsection hidden"><a class="anchor" name="wear"></a>
               <h1 class="fs-primary-heading text-primary-300 fw-bold">WEAR?</h1>
               <div class="clothing-description">
-                <p class="fs-body text-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+                <p class="fs-secondary-heading text-neutral-400 fw-bold">
+                  Proper attire
+                  <br>
+                  [Image Here]
                 </p>
               </div>
             </div>
@@ -144,7 +147,7 @@
       <section class="message-collection" id="messagessection"><a class="anchor" name="messagessection"></a>
         <div class="container" id="msg">
         <h1 class="fs-primary-heading text-primary-300 fw-bold hidden">MESSAGES</h1>
-        <div class="message-mess hidden"></div>
+        <div class="message-mess hidden">
           <form action="" class="form hidden" method="POST" id="message-form">
             <div class="form-field">
               <label for="msg-name" class="text-neutral-400 fw-semibold fs-600">Name</label>
@@ -156,12 +159,16 @@
             </div>
             <button class="button" type="submit">Send message</button>
           </form>
-          <div id="msg-collector" class="msg-collector hidden">
+          <div class="msg-collector-container hidden">
+            <div id="msg-collector" class="msg-collector hidden">
+            </div>
           </div>
         </div>
+        
         <p id="content" style="visibility:visible ;opacity:0%; size: 0px; position:absolute" class="text-neutral-400 fs-500">
           <%= content %>
         </p>
+
         <script>
           document.getElementById("message-form").reset();
         </script>
@@ -206,6 +213,60 @@
         </script>
       </div>
       </section>
+
+      <!--<audio id="mainAudio" autoplay muted>
+        <source 
+        src="/src/public/audio/y2mate.com - Brandenburg Concerto No 4 in G Movement I Allegro BWV 1049 by Kevin MacLeod_64kbps.mp3" 
+        type="audio/mpeg">
+      </audio>
+      <div class="audio-player">
+        <div class="controls">
+          <div class="play-container">
+            <div class="toggle-play play"></div>
+          </div>
+          <div class="time">
+            <h3 id="audioTime">00:00/00:00</h3>
+          </div>
+        </div>
+      </div>
+      <script>
+        const mainAudio=document.getElementById("mainAudio")
+        const documentAudioInfo=document.getElementById("audioTime")
+        
+        /*mainAudio.oncanplaythrough = function() {
+          console.log("AUDIO LOADED")
+          mainAudio.muted = true;
+          mainAudio.setAttribute("muted","true");
+          mainAudio.setAttribute("autoplay","true");
+          mainAudio.setAttribute("mute","true")
+          mainAudio.play();
+        }*/
+        
+        /*audio.addEventListener(
+            "loadeddata",
+            () => {
+                var audioTimeInfo = audio.currentTime + '/' + audio.duration 
+                audio.volume =.75;
+            },
+            false
+        );
+
+        const playBtn = audioPlayer.querySelector(".controls .toggle-play");
+        playBtn.addEventListener(
+            "click",
+            () => {
+                if (audio.paused){
+                    playBtn.classList.remove("play");
+                    playBtn.classList.add("pause");
+                    audio.play();
+                } else{
+                    playBtn.classList.remove("pause");
+                    playBtn.classList.add("play");
+                    audio.pause();
+                }
+            }
+        )*/
+      </script>-->
 
     </main>
 

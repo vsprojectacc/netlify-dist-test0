@@ -448,11 +448,7 @@ footer{
 }
 
 .msg-collector, .form{
-  width:min(800px, 100% - var(--padding));
-  padding-top: 1.5rem;
   padding-bottom: .25rem;
-  max-height: 500px;
-  overflow-y: auto;
   display: flex;
   flex-direction: column-reverse;
   justify-content:center;
@@ -491,8 +487,11 @@ footer{
   border-color: var(--clr-primary-300);
 }
 .message-mess{
-  display:block;
+  display:flex;
   gap:1.75rem;
+  flex-direction: column;
+  width:min(800px, 100% - var(--padding));
+  align-items: stretch;
 }
 
 .msg-content-field{
@@ -534,11 +533,22 @@ footer{
   flex-grow: 2;
 }
 
+.msg-collector-container{
+  overflow-y: auto;
+  max-height: 500px;
+}
+
 .calender-button{
   display:flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
+}
+
+.audio-player{
+  width: 30%;
+  height: 20%;
+  background-color: white;
 }
 
 
