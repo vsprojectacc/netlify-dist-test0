@@ -51,7 +51,7 @@ router.get('/', async(req, res) => {
         });}
     catch(err){
         console.log(err)
-        res.send('ERROR CHECK CONSOLE')
+        res.send('ERROR CHECK CONSOLE',err)
     }
 });
 
