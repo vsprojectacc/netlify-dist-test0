@@ -15,7 +15,6 @@ app.use(express.urlencoded({extended:true}))
 const SHEET_ID = process.env.SHEET_ID;
 
 const keysEnvVar = process.env['GOOGLE_APPLICATION_CREDENTIALS'];
-console.log(keysEnvVar)
 const keys = JSON.parse(keysEnvVar);
 
 
