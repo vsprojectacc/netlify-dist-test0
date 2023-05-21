@@ -45,12 +45,13 @@ router.get('/', async(req, res) => {
 
         const outputJSON = JSON.stringify(getRows.data.values);
 
-        res.render('index',{content: 
+        res.render('mainPage',{content: 
             outputJSON
         });}
     catch(err){
-        console.log(err)
-        res.send('ERROR CHECK CONSOLE')
+        console.log(err);
+        var output = 'ERROR CHECK CONSOLE' + err
+        res.send(output);
     }
 });
 
