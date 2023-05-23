@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended:true}))
 
 const SHEET_ID = process.env.SHEET_ID;
 
-const keysEnvVar = process.env['SECRETKEY'];
+const keysEnvVar = process.env['GOOGLE_APPLICATION_CREDENTIALS'];
 const keys = JSON.parse(keysEnvVar);
 
 
@@ -45,12 +45,13 @@ router.get('/', async(req, res) => {
 
         const outputJSON = JSON.stringify(getRows.data.values);
 
-        res.render('index',{content: 
+        res.render('mainPage',{content: 
             outputJSON
         });}
     catch(err){
-        console.log(err)
-        res.send('ERROR CHECK CONSOLE')
+        console.log(err);
+        var output = 'ERROR CHECK CONSOLE' + err
+        res.send(output);
     }
 });
 
